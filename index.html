@@ -2,19 +2,45 @@
 <html>
 <head>
   <title>Rent Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Rent Tracker</h2>
-  <div id="loginDiv">
-    <input type="text" id="username" placeholder="Enter your name" />
-    <button onclick="login()">Login</button>
-  </div>
+  <div class="container">
+    <h1>🏠 Rent Tracker</h1>
 
-  <div id="dashboard" style="display:none">
-    <h3>Welcome, <span id="userName"></span></h3>
-    <button onclick="markPaid()">Mark Rent as Paid</button>
-    <p id="status"></p>
+    <!-- Login -->
+    <div id="loginDiv">
+      <input type="text" id="loginName" placeholder="Enter your name" />
+      <p class="link" onclick="showSignup()">New user? Sign up</p>
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Signup -->
+    <div id="signupDiv" style="display: none;">
+      <input type="text" id="signupName" placeholder="Full Name" />
+      <input type="text" id="signupShop" placeholder="Shop Number" />
+      <input type="text" id="signupContact" placeholder="Contact Number" />
+      <button onclick="signup()">Sign Up</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display:none">
+      <h2>Welcome, <span id="userName"></span> 👋</h2>
+
+      <div class="card">
+        <h3>📤 Mark Rent as Paid</h3>
+        <input type="number" id="amount" placeholder="Amount Paid (₹)" />
+        <input type="file" id="proofInput" accept="image/*" />
+        <button onclick="markPaid()">Submit Rent</button>
+        <p id="status"></p>
+      </div>
+
+      <div class="card">
+        <h3>📜 Rent History</h3>
+        <ul id="historyList"></ul>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
